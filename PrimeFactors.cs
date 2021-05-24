@@ -6,13 +6,10 @@ namespace PrimeFactorsKata
     public static class PrimeFactors
     {
         public static IEnumerable<int> Generate(int number)
-        {        
-            foreach (var prime in Primes(number))
+        {
+            foreach (var primeFactor in Primes(number).Where(p=>number % p ==0))
             {
-                if (number % prime ==0)
-                {
-                    yield return prime;
-                }
+                yield return primeFactor;
             }               
         }
 
