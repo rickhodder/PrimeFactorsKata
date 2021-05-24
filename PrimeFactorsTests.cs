@@ -11,6 +11,7 @@ namespace PrimeFactorsKata
         public void Generate_30HasFactors2_3_5()
         {
             var factors = PrimeFactors.Generate(30).ToList();
+            
             Assert.True(factors.Single(f=>f==2)==2 &&
                         factors.Single(f=>f==3)==3 &&
                         factors.Single(f=>f==5)==5);

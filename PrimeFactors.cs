@@ -7,21 +7,37 @@ namespace PrimeFactorsKata
     {
         public static IEnumerable<int> Generate(int number)
         {
-            foreach (var primeFactor in Primes(number).Where(p=>number % p ==0))
+            foreach (var primeFactor in PrimesUnder(number)
+                                        .Where(p => number % p == 0))
             {
                 yield return primeFactor;
-            }               
+            }
         }
 
-        public static IEnumerable<int> Primes(int number)
+        public static IEnumerable<int> PrimesUnder(int number)
         {
             for (int test = 2; test < number; test++)
             {
-                if (number % test ==0)
+                if (IsPrime(test) && number % test == 0)
                 {
                     yield return test;
                 }
             }
-        }   
+        }
+
+        public static bool IsPrime(int number)
+        {
+            var isPrime=true;
+            for (int test = 2; test < number; test++)
+            {
+                if(number % test==0)
+                {
+                    isPrime=false;
+                    break;
+                }
+            }
+
+            return isPrime;
+        }
     }
 }
