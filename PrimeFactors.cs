@@ -18,7 +18,7 @@ namespace PrimeFactorsKata
         {
             for (int test = 2; test < number; test++)
             {
-                if (IsPrime(test) && number % test == 0)
+                if (IsPrime(test))
                 {
                     yield return test;
                 }
