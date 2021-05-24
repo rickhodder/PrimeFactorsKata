@@ -8,10 +8,19 @@ namespace PrimeFactorsKata
     public class PrimeFactorsTests
     {
         [Fact]
+        public void Generate_42HasFactors2_3_7()
+        {
+            var factors = PrimeFactors.Generate(42).ToList();
+            Assert.True(factors.Single(f=>f==2)==2 &&
+                        factors.Single(f=>f==3)==3 && 
+                        factors.Single(f=>f==7)==7);
+        }
+
+        [Fact]
         public void Generate_TwoHasNoFactors()
         {
             var factors = PrimeFactors.Generate(2);
-            Assert.Equal(0,factors.Count());
+            Assert.Empty(factors);
         }
 
 
@@ -19,7 +28,7 @@ namespace PrimeFactorsKata
         public void Generate_OneHasNoFactors()
         {
             var factors = PrimeFactors.Generate(1);
-            Assert.Equal(0,factors.Count());
+            Assert.Empty(factors);
         }
     }
 }
